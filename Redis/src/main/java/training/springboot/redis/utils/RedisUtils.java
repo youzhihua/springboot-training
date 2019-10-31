@@ -8,33 +8,33 @@ import org.springframework.stereotype.Component;
 public class RedisUtils {
 
     @Autowired
-    private RedisTemplate<String,String> redisTemplate;
+    private RedisTemplate<String,Object> customRedisTemplate;
 
     /**
      * 插入缓存
      */
     public void insertRedisKeys(String key,String value){
-        redisTemplate.opsForValue().set(key,value);
+        customRedisTemplate.opsForValue().set(key,value);
     }
 
     /**
      * 更新缓存
      */
     public void updateRedisKeys(String key,String value){
-        redisTemplate.opsForValue().getAndSet(key,value);
+        customRedisTemplate.opsForValue().getAndSet(key,value);
     }
 
     /**
      * 获取缓存
      */
-    public String getRedisKeys(String key){
-        return redisTemplate.opsForValue().get(key);
+    public Object getRedisKeys(String key){
+        return customRedisTemplate.opsForValue().get(key);
     }
 
     /**
      * 删除缓存
      */
     public void deleteRedisKeys(String key){
-        redisTemplate.delete(key);
+        customRedisTemplate.delete(key);
     }
 }
