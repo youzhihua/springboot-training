@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.html.org">
+<head>
+    <meta charset="UTF-8">
+    <title>myErrorPage</title>
+</head>
+<body>
+<h2>异常界面</h2>
+<table>
+    <tr>
+        <td>异常信息：</td>
+        <td th:text="${errMsg}"></td>
+    </tr>
+    <tr>
+        <td>时间戳：</td>
+        <td th:text="${timestamp}"></td>
+    </tr>
+    <tr>
+        <td>错误码：</td>
+        <td th:text="${status}"></td>
+    </tr>
+    <tr>
+        <td>路径：</td>
+        <td th:text="${url}"></td>
+    </tr>
+</table>
+</body>
+</html>
